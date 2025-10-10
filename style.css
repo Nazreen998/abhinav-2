@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 🔹 Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(3, 31, 114);
+  color: white;
+  padding: 13px 50px;
+  font-size: 14px;
+}
+.top-bar a { color: white; text-decoration: none; }
+.top-bar select { background: transparent; border: none; color: white; }
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: rgb(3, 31, 114);
+}
+.logo span {
+  color: black;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.menu a {
+  text-decoration: none;
+  color:  rgb(3, 31, 114);
+  font-weight: 500;
+}
+.menu a:hover {
+  color: red}
+
+.social-icons {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* 🔹 Category Slider */
+.category-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  background-color: #f0edfc;
+}
+.slider-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 25s linear infinite;
+}
+
+.slide {
+  min-width: 160px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.slide img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: radial-gradient(#fff, #f8c9da);
+}
+.slide p {
+  margin-top: 10px;
+  background: rgba(231, 229, 235, 0.8);
+  border-radius: 25px;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #222;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 🔹 Banner */
+.banner {
+  background: url('cat4.png') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+.banner-content h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+.banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.banner-content button {
+  padding: 10px 25px;
+  border: none;
+  color: white;
+  background:rgb(3, 31, 114);
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 🔹 Footer */
+footer {
+  background: rgb(3, 31, 114);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
