@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abhinav Agency</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -17,16 +17,15 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fa-regular fa-envelope"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
+      </div class="center">
       <a href="#">Need Any Help? Call us: +91 79045 42078</a>
     </div>
-    <div class="center">All over Tamilnadu Deleivery</div>
-    <div class="right">
+     <div class="center"><GSTIN>
+     <UIN:>GSTIN/UIN:</UIN:>33CTPK6791GG1Z2</div>
+    <div class="center">All over Tamilnadu Delivery</div>
+    <div class="center">
       <select>
         <option>India (INR ₹)</option>
-      </select>
-      <select>
-        <option>English</option>
       </select>
     </div>
   </div>
@@ -34,51 +33,144 @@
   <!-- 🔹 Navbar -->
   <nav class="navbar">
     <div class="logo">
-        <img src="logo.png" height="40px" width="40px">
-        Abhinav <span>Agency</span></div>
+      <img src="logo.png" height="40px" width="40px" alt="Logo">
+      Abhinav <span>Agency</span>
+    </div>
     <ul class="menu">
       <li class="dropdown">
-      <a href="#">FMCG Products</a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Coca Cola</a></li>
-        <li><a href="#">Pepsi</a></li>
-        <li><a href="#">Aachi Masala</a></li>
-         <li><a href="#">Parle</a></li>
+        <a href="#">FMCG Products</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Coca Cola</a></li>
+          <li><a href="#">Pepsi</a></li>
+          <li><a href="#">Aachi Masala</a></li>
+          <li><a href="#">Parle</a></li>
           <li><a href="#">VVD Oil</a></li>
-           <li><a href="#">Haldirams</a></li>
-            <li><a href="#">Heritage Ghee</a></li>
-             <li><a href="#">Campa Cola</a></li>
-              <li><a href="#">Mysore Sandal</a></li>
-      </ul></li>
+          <li><a href="#">Haldirams</a></li>
+          <li><a href="#">Heritage Ghee</a></li>
+          <li><a href="#">Campa Cola</a></li>
+          <li><a href="#">Mysore Sandal</a></li>
+        </ul>
+      </li>
       <li><a href="#">Ashirvad</a></li>
       <li><a href="#">Kothari</a></li>
-      <li><a href="#">Super stocklist</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="service.html">Service</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Super Stocklist</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- 🔹 Category Slider -->
-  <section class="category-slider">
-    <div class="slider-track">
-      <div class="slide"><div class="diamond"><img src="cat1.jpg" alt=""><p>Cool Drinks</p></div></div>
-      <div class="slide"><div class="diamond"><img src="image2.webp" alt=""><p>Aachi Masala</p></div></div>
-      <div class="slide"><div class="diamond"><img src="cat3.jpg" alt=""><p>Pipes</p></div></div>
-      <div class="slide"><div class="diamond"><img src="cat4.png" alt=""><p>Fresh Drink</p></div></div>
-      <div class="slide"><div class="diamond"><img src="cat5.jpg" alt=""><p>Biscuits</p></div></div>
-      <div class="slide"><div class="diamond"><img src="cat6.png" alt=""><p>others</p></div></div>
-    </div>
-  </section>
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <div class="item"><img src="cat1.jpg" alt=""><p>Cool Drinks</p></div>
+      <div class="item"><img src="image2.webp" alt=""><p>Aachi Masala</p></div>
+      <div class="item"><img src="cat3.jpg" alt=""><p>Pipes</p></div>
+      <div class="item"><img src="cat4.png" alt=""><p>Fresh Drink</p></div>
+      <div class="item"><img src="cat5.jpg" alt=""><p>Biscuits</p></div>
+      <div class="item"><img src="cat6.png" alt=""><p>Others</p></div>
 
-  <!-- 🔹 Banner Section -->
+      <!-- 🔁 Duplicate slides for smooth continuous scroll -->
+      <div class="item"><img src="cat1.jpg" alt=""><p>Cool Drinks</p></div>
+      <div class="item"><img src="image2.webp" alt=""><p>Aachi Masala</p></div>
+      <div class="item"><img src="cat3.jpg" alt=""><p>Pipes</p></div>
+      <div class="item"><img src="cat4.png" alt=""><p>Fresh Drink</p></div>
+      <div class="item"><img src="cat5.jpg" alt=""><p>Biscuits</p></div>
+      <div class="item"><img src="cat6.png" alt=""><p>Others</p></div>
+    </div>
+  </div>
+
+  <!-- 🔹 Banner -->
   <section class="banner">
     <div class="banner-content">
       <h1>Whole Sale</h1>
       <p>Quality Products from Abhinav Agency</p>
       <button>Shop Now</button>
     </div>
-  </section>
+  </section><br><br>
+<!--About Section-->
+<section class="about" id="about">
+<div class="contact-container">
+  <div class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="about.jpg" alt="About Abhinav Agency">
+      </div>
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          Abhinav Agency is a trusted wholesale distributor delivering high-quality FMCG products across Tamil Nadu.
+          With a strong network and a commitment to excellence, we provide top brands like Aachi, Ashirvad, and Kothari
+          to retailers and businesses at competitive prices.
+        </p>
+        <p>
+          We continue to grow as a reliable partner for both suppliers and customers, offering a wide range of daily
+          essentials, beverages, and home products under one roof.
+        </p>
+        <button>Learn More</button>
+      </div>
+    </div>
+  </div>
+</div></section>
+<!---Service Bar-->
+<section class="services" id="service">
+  <div class="services-header fade-section">
+    <h2>Our Services</h2>
+    <p>We provide fast, reliable, and quality service across Tamil Nadu to meet your business needs.</p>
+  </div>
+
+  <div class="service-container fade-section">
+    <div class="service-box">
+      <i class="fa-solid fa-truck"></i>
+      <h3>Fast Delivery</h3>
+      <p>We ensure on-time delivery of all orders through our efficient transport network covering every corner of Tamil Nadu.</p>
+    </div>
+
+    <div class="service-box">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <h3>Wholesale Supply</h3>
+      <p>Providing a wide range of FMCG products, beverages, and household goods directly from top brands at wholesale rates.</p>
+    </div>
+
+    <div class="service-box">
+      <i class="fa-solid fa-headset"></i>
+      <h3>Customer Support</h3>
+      <p>Our dedicated team offers round-the-clock assistance to ensure complete satisfaction and support for every client.</p>
+    </div>
+  </div>
+</section>
+  <!-- 🔹 Contact Section -->
+  <section class="contact" id="contact">
+    <!-- Header -->
+    <div class="contact-header">
+      <h2>Contact Us</h2><br>
+      <p>We’d love to hear from you! Reach out for business inquiries, product information, or delivery details.</p>
+    </div>
+  <div class="contact-container">
+    <!-- 3-column wrapper -->
+    <div class="contact-wrapper">
+      <!-- Column 1: Contact Info -->
+      <div class="contact-info">
+        <h3>Get in Touch</h3><br><br>
+        <p><i class="fa-solid fa-location-dot"></i>RS No. 149/7A, Parambupatti Road, Near SN College, Perungudi ,Madurai - 625022</p><br>
+        <p><i class="fa-solid fa-location-dot"></i> 4/130 Phase II CHintamani Ring Road, Via Chintamani Toll Gate, Madurai-625009</p><br>
+        <p><i class="fa-solid fa-phone"></i> +91 79045 42078</p><br>
+        <p><i class="fa-solid fa-envelope"></i> abhinavagency@gmail.com</p><br>
+        <p><i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 9:00 PM</p><br>
+      </div>
+
+      <!-- Column 2: Map -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=9.8489,78.0880&z=15&output=embed" allowfullscreen></iframe>
+      </div>
+
+      <!-- Column 3: Custom Image -->
+      <div class="custom-image-column">
+        <img src="location.png" alt="My Place">
+      </div>
+    </div>
+  </div>
+</section> 
 
   <!-- 🔹 Footer -->
   <footer>
@@ -87,4 +179,3 @@
 
 </body>
 </html>
-
