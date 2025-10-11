@@ -31,35 +31,40 @@
   </div>
 
   <!-- 🔹 Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="logo.png" height="40px" width="40px" alt="Logo">
-      Abhinav <span>Agency</span>
-    </div>
-    <ul class="menu">
-      <li class="dropdown">
-        <a href="#">FMCG Products</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Coca Cola</a></li>
-          <li><a href="#">Pepsi</a></li>
-          <li><a href="#">Aachi Masala</a></li>
-          <li><a href="#">Parle</a></li>
-          <li><a href="#">VVD Oil</a></li>
-          <li><a href="#">Haldirams</a></li>
-          <li><a href="#">Heritage Ghee</a></li>
-          <li><a href="#">Campa Cola</a></li>
-          <li><a href="#">Mysore Sandal</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Ashirvad</a></li>
-      <li><a href="#">Kothari</a></li>
-      <li><a href="#">Super Stocklist</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <div class="logo">
+    <img src="logo.png" height="40px" width="40px" alt="Logo">
+    Abhinav <span>Agency</span>
+  </div>
 
+  <!-- Hamburger icon -->
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+ <ul class="menu" id="menu">
+    <li class="dropdown">
+      <a href="#">FMCG Products</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Coca Cola</a></li>
+        <li><a href="#">Pepsi</a></li>
+        <li><a href="#">Aachi Masala</a></li>
+        <li><a href="#">Parle</a></li>
+        <li><a href="#">VVD Oil</a></li>
+        <li><a href="#">Haldirams</a></li>
+        <li><a href="#">Heritage Ghee</a></li>
+        <li><a href="#">Campa Cola</a></li>
+        <li><a href="#">Mysore Sandal</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Ashirvad</a></li>
+    <li><a href="#">Kothari</a></li>
+    <li><a href="#">Super Stocklist</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
   <!-- 🔹 Category Slider -->
   <div class="scroll-container">
     <div class="scroll-content">
@@ -176,6 +181,29 @@
   <footer>
     <p>© 2025 Abhinav Agency. All rights reserved.</p>
   </footer>
+<!-- all your HTML sections here -->
 
+<!-- ✅ JavaScript at the very end -->
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("menu");
+  const dropdowns = document.querySelectorAll(".dropdown > a");
+
+  // Toggle main mobile menu
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("active"); 
+  });
+
+  // Dropdown open/close for mobile
+  dropdowns.forEach(link => {
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        link.parentElement.classList.toggle("open");
+      }
+    });
+  });
+</script>
 </body>
 </html>
+

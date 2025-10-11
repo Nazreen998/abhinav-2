@@ -5,7 +5,6 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
 /* 🔹 Top Bar */
 .top-bar {
   display: flex;
@@ -19,8 +18,7 @@
 }
 .top-bar a { color: white; text-decoration: none; }
 .top-bar select { background: transparent; border: none; color: white; }
-
-/* 🔹 Navbar */
+/* 🔹 Navbar Base */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,23 +30,130 @@
   top: 0;
   z-index: 100;
 }
+
 .logo {
   font-size: 26px;
   font-weight: bold;
   color: rgb(3, 31, 114);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.logo span { color: black; }
+.logo span {
+  color: black;
+}
+
+/* 🔹 Menu Links */
 .menu {
   list-style: none;
   display: flex;
   gap: 25px;
+  align-items: center;
+  transition: all 0.3s ease;
 }
+.menu.active {
+  right: 0;
+}
+
 .menu a {
   text-decoration: none;
   color: rgb(3, 31, 114);
   font-weight: 500;
+  transition: color 0.3s;
 }
-.menu a:hover { color: red; }
+.menu a:hover {
+  color: red;
+}
+
+/* 🔹 Dropdown */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  min-width: 180px;
+  z-index: 200;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 15px;
+  color: rgb(3, 31, 114);
+}
+.dropdown-menu li a:hover {
+  background: #f3f3f3;
+  color: red;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* 🔹 Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: rgb(3, 31, 114);
+}
+
+/* 🔹 Responsive Styles */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+  .menu {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    padding: 30px 20px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    display: none;
+    background: transparent;
+    padding-left: 10px;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown a::after {
+    content: " ▼";
+    font-size: 12px;
+  }
+}
 
 /* 🔹 Dropdown */
 .dropdown { position: relative; }
