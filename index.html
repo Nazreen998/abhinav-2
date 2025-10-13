@@ -9,8 +9,12 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-
+<div id="preloader">
+  <img src="logo.png" alt="Logo">
+  <h3>ABHINAV AGENCY</h3>
+</div>
   <!-- 🔹 Top Bar -->
+   <section id="home">
   <div class="top-bar">
     <div class="left">
       <div class="social-icons">
@@ -28,43 +32,38 @@
         <option>India (INR ₹)</option>
       </select>
     </div>
-  </div>
-
+  </div></section>
   <!-- 🔹 Navbar -->
 <nav class="navbar">
   <div class="logo">
-    <img src="logo.png" height="40px" width="40px" alt="Logo">
-    Abhinav <span>Agency</span>
-  </div>
-
-  <!-- Hamburger icon -->
-  <div class="menu-toggle" id="menuToggle">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-
- <ul class="menu" id="menu">
+  <img src="logo.png" alt="Logo" width="50" height="50"><span><h2>Abhinav Agency</h2></span>
+  
+</div>
+  <ul class="menu" id="menu">
+    <li><a href="#home">Home</a></li>
     <li class="dropdown">
-      <a href="#">FMCG Products</a>
+      <a href="#our-products">Our Products</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Coca Cola</a></li>
-        <li><a href="#">Pepsi</a></li>
-        <li><a href="#">Aachi Masala</a></li>
-        <li><a href="#">Parle</a></li>
-        <li><a href="#">VVD Oil</a></li>
-        <li><a href="#">Haldirams</a></li>
-        <li><a href="#">Heritage Ghee</a></li>
-        <li><a href="#">Campa Cola</a></li>
-        <li><a href="#">Mysore Sandal</a></li>
+        <li><a href="#">FMCG Products</a></li>
+        <li><a href="#">Kothari</a></li>
+        <li><a href="#">Super Stocklist</a></li>
       </ul>
     </li>
-    <li><a href="#">Ashirvad</a></li>
-    <li><a href="#">Kothari</a></li>
-    <li><a href="#">Super Stocklist</a></li>
+
+    <li><a href="#service">Our Services</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#service">Service</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+
+  <div class="login-icon"><a href="login.html">
+    <i class="fa-solid fa-user"></i></a>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 </nav>
+
   <!-- 🔹 Category Slider -->
   <div class="scroll-container">
     <div class="scroll-content">
@@ -93,6 +92,44 @@
       <button>Shop Now</button>
     </div>
   </section><br><br>
+  <!--Our Products-->
+  <section id="our-products">
+  <div class="container">
+    <h2>Our Products</h2>
+    <p>
+      At Abhinav Agency, we provide a wide range of high-quality products to meet your business needs. Explore our offerings below:
+    </p>
+
+    <div class="products-wrapper">
+      <!-- FMCG -->
+      <div class="product-card">
+        <img src="soft-drink.png" alt="FMCG">
+        <h3>FMCG</h3>
+        <p>
+          We supply a wide range of FMCG products including daily essentials, personal care items, and packaged goods, ensuring quality and timely delivery.
+        </p>
+      </div>
+
+      <!-- Pipes -->
+      <div class="product-card">
+        <img src="plumbing.png" alt="Pipes">
+        <h3>Pipes</h3>
+        <p>
+          Our range of durable pipes includes PVC, CPVC, and industrial pipes suitable for plumbing, construction, and water supply systems.
+        </p>
+      </div>
+
+      <!-- Others -->
+      <div class="product-card">
+        <img src="grocery-cart.png" alt="Others">
+        <h3>Others</h3>
+        <p>
+          We also provide miscellaneous products tailored to various industries, including hardware, packaging materials, and other essential items for business operations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 <!--About Section-->
 <section class="about" id="about">
 <div class="contact-container">
@@ -148,35 +185,50 @@
   <section class="contact" id="contact">
     <!-- Header -->
     <div class="contact-header">
-      <h2>Contact Us</h2><br>
-      <p>We’d love to hear from you! Reach out for business inquiries, product information, or delivery details.</p>
-    </div>
+    <h2>Let's Work Together</h2><br>
+    <p>Get in touch so we can start working together.</p>
+  </div>
+
   <div class="contact-container">
-    <!-- 3-column wrapper -->
     <div class="contact-wrapper">
-      <!-- Column 1: Contact Info -->
+      <!-- 🧾 left Side: Contact Form -->
+      <div class="contact-form">
+        <form id="workForm">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter your first name" required>
+
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter your last name" required>
+
+          <label for="email">Email *</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit">Send</button>
+          <div class="success-message" id="successMsg">✅ Message sent successfully!</div>
+        </form></div>
+        <!-- Column 1: Contact Info -->
       <div class="contact-info">
-        <h3>Get in Touch</h3><br><br>
+        <h3><u>Get in Touch</u></h3><br>
         <p><i class="fa-solid fa-location-dot"></i>RS No. 149/7A, Parambupatti Road, Near SN College, Perungudi ,Madurai - 625022</p><br>
         <p><i class="fa-solid fa-location-dot"></i> 4/130 Phase II CHintamani Ring Road, Via Chintamani Toll Gate, Madurai-625009</p><br>
         <p><i class="fa-solid fa-phone"></i> +91 79045 42078</p><br>
         <p><i class="fa-solid fa-envelope"></i> abhinavagency@gmail.com</p><br>
         <p><i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 9:00 PM</p><br>
-      </div>
-
+     <!-- 🖼️ center Side: Image -->
+      <div class="custom-image-column">
+        <img src="location.png" alt="Work Together Image"></div></div>
       <!-- Column 2: Map -->
       <div class="map-container">
         <iframe src="https://www.google.com/maps?q=9.8489,78.0880&z=15&output=embed" allowfullscreen></iframe>
-      </div>
-
-      <!-- Column 3: Custom Image -->
-      <div class="custom-image-column">
-        <img src="location.png" alt="My Place">
-      </div>
-    </div>
-  </div>
+      </div> 
+      </div></div></div></div>
 </section> 
-
   <!-- 🔹 Footer -->
   <footer>
     <p>© 2025 Abhinav Agency. All rights reserved.</p>
@@ -203,7 +255,7 @@
       }
     });
   });
-</script>
+  </script>
 </body>
 </html>
 

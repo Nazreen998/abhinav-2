@@ -19,6 +19,7 @@
 .top-bar a { color: white; text-decoration: none; }
 .top-bar select { background: transparent; border: none; color: white; }
 /* 🔹 Navbar Base */
+/* 🔹 Navbar Base */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -30,31 +31,26 @@
   top: 0;
   z-index: 100;
 }
-
+/* 🔹 Logo */
 .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: rgb(3, 31, 114);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.logo span {
-  color: black;
+  display: flex;             /* Align items in a row */
+  align-items: center;       /* Vertically center image and text */
+  gap: 10px;                 /* Optional: space between logo and text */
 }
 
-/* 🔹 Menu Links */
+.logo h2 {
+  color: rgb(3, 31, 114);
+  margin: 0;                 /* Remove default margin */
+  font-size: 20px;           /* Adjust text size as needed */
+}
+/* 🔹 Menu */
 .menu {
   list-style: none;
   display: flex;
-  gap: 25px;
+  justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
+  gap: 25px;
 }
-.menu.active {
-  right: 0;
-}
-
 .menu a {
   text-decoration: none;
   color: rgb(3, 31, 114);
@@ -64,7 +60,6 @@
 .menu a:hover {
   color: red;
 }
-
 /* 🔹 Dropdown */
 .dropdown {
   position: relative;
@@ -80,7 +75,9 @@
   padding: 10px 0;
   border-radius: 5px;
   min-width: 180px;
-  z-index: 200;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 .dropdown-menu li a {
   display: block;
@@ -88,32 +85,68 @@
   color: rgb(3, 31, 114);
 }
 .dropdown-menu li a:hover {
-  background: #f3f3f3;
-  color: red;
+  background: red;
+  color: white;
+  border-radius: 5px;
 }
-.dropdown:hover .dropdown-menu {
-  display: block;
+/* 🔹 Login Icon */
+.login-icon {
+  font-size: 22px;
+  color: rgb(3, 31, 114);
+  cursor: pointer;
 }
+/*Pre Loader*/
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+  }
 
+  /* Logo rotation animation */
+  #preloader img {
+    width: 200px;
+    height: 200px;
+    animation: rotate 5s linear 1;
+    display: block;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Preloader text */
+  #preloader h3 {
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: rgb(4, 27, 94);
+    text-align: center;
+  }
+
+  /* Hide preloader when loaded */
+  body.loaded #preloader {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 1.2s ease;
+  }
 /* 🔹 Hamburger Menu */
 .menu-toggle {
   display: none;
   font-size: 25px;
-  cursor: pointer;
   color: rgb(3, 31, 114);
+  cursor: pointer;
 }
-
-/* 🔹 Responsive Styles */
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 15px 25px;
-  }
-  .menu {
-    gap: 15px;
-  }
-}
-
-@media (max-width: 768px) {
+/* 🔹 Responsive */
+@media (max-width: 900px) {
   .menu {
     position: fixed;
     top: 65px;
@@ -123,7 +156,7 @@
     background: white;
     flex-direction: column;
     align-items: start;
-    gap: 15px;
+    gap: 55px;
     padding: 30px 20px;
     transition: right 0.3s ease;
     box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -139,10 +172,10 @@
 
   .dropdown-menu {
     position: static;
-    box-shadow: none;
     display: none;
     background: transparent;
-    padding-left: 10px;
+    box-shadow: none;
+    padding-left: 15px;
   }
 
   .dropdown.open .dropdown-menu {
@@ -153,32 +186,6 @@
     content: " ▼";
     font-size: 12px;
   }
-}
-
-/* 🔹 Dropdown */
-.dropdown { position: relative; }
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  display: none;
-  flex-direction: column;
-  list-style: none;
-  min-width: 170px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-.dropdown:hover .dropdown-menu { display: flex; }
-.dropdown-menu li a {
-  padding: 10px 15px;
-  color: rgb(3,31,114);
-  display: block;
-}
-.dropdown-menu li a:hover {
-  background: red;
-  color: white;
-  border-radius: 5px;
 }
 
 /* 🔹 Category Slider */
@@ -262,6 +269,82 @@
 .banner-content button:hover {
   background-color: green;
 }
+/*Our Products*/
+/* Container for content */
+#our-products {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#our-products .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#our-products h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #011349;
+}
+
+#our-products p {
+  font-size: 18px;
+  margin-bottom: 50px;
+  color: #555;
+}
+
+/* Products wrapper */
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Individual product card */
+.product-card {
+  flex: 1 1 250px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.product-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #011349;
+}
+
+.product-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Hover effect */
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .products-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 /* 🔹 About Section */
 .contact-container {
   width: 90%;
@@ -312,13 +395,93 @@
   background-color: green;
 }
 /* 🔹 Contact Section */
+/* 🔹 Contact Section */
+.contact {
+  background: #f9f9f9;
+  padding: 60px 20px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .contact-wrapper {
   display: flex;
-  gap: 30px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 40px;
+  justify-content: center;
   align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
 }
+
+.custom-image-column img {
+  width: 100%;
+  max-width: 300px;
+  max-height: 280px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 14px;
+  color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #666;
+}
+
+.contact-form textarea {
+  height: 110px;
+  resize: none;
+}
+
+.contact-form button {
+  background-color: #444950;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #2f343a;
+}
+
+.success-message {
+  display: none;
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .contact-header h2{
 color: rgb(3, 31, 114);
 text-align: center;
@@ -339,7 +502,7 @@ justify-content: center;
 /* Map */
 .map-container iframe {
   width: 100%;
-  height: 350px;       /* same height as image */
+  height: 520px;       /* same height as image */
   border: 0;
   border-radius: 10px;
 }

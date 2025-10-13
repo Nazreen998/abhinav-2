@@ -47,4 +47,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+// Contact form script
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("workForm");
+  const successMsg = document.getElementById("successMsg");
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (firstName === "" || email === "" || message === "") {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    // Show success message
+    successMsg.style.display = "block";
+
+    // Reset form
+    form.reset();
+
+    // Hide message after 4 seconds
+    setTimeout(() => {
+      successMsg.style.display = "none";
+    }, 4000);
+  });
+});
+//Preloader Content
+const logo = document.querySelector('#preloader img');
+
+  // Listen for the end of the rotation animation
+  logo.addEventListener('animationend', function() {
+    document.body.classList.add('loaded'); // Show main content
+  });
