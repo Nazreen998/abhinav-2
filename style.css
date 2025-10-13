@@ -191,7 +191,7 @@
 /* 🔹 Category Slider */
  .scroll-container {
     width: 100%;
-    height: auto;
+    height: 210px;
     overflow: hidden;
     border: 2px solid #ccc;
     padding: 10px 0;
