@@ -283,14 +283,14 @@
 }
 
 #our-products h2 {
-  font-size: 36px;
+  font-size: 40px;
   margin-bottom: 20px;
   font-family: 'Poppins', sans-serif;
   color: #011349;
 }
 
 #our-products p {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 50px;
   color: #555;
 }
@@ -327,7 +327,7 @@
 }
 
 .product-card p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
 
@@ -371,12 +371,12 @@
 
 .about-content h2 {
   color:  rgb(3, 31, 114);
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 15px;
 }
 
 .about-content p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   margin-bottom: 10px;
 }
@@ -546,7 +546,7 @@ justify-content: center;
 }
 
 .services-header p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   margin-bottom: 40px;
 }
