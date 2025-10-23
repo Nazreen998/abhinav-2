@@ -83,3 +83,39 @@ const logo = document.querySelector('#preloader img');
   logo.addEventListener('animationend', function() {
     document.body.classList.add('loaded'); // Show main content
   });
+// Stagger animations for child elements
+function animateChildren(parentSelector, childSelector) {
+  const parent = document.querySelector(parentSelector);
+  if(!parent) return;
+
+  const children = parent.querySelectorAll(childSelector);
+  children.forEach((child, index) => {
+    const childTop = child.getBoundingClientRect().top;
+    if(childTop < window.innerHeight * 0.8) {
+      setTimeout(() => {
+        child.classList.add('visible');
+      }, index * 150); // stagger 150ms
+    }
+  });
+}
+
+window.addEventListener('scroll', () => {
+  animateChildren('#our-products .products-wrapper', '.product-card');
+  animateChildren('.service-container', '.service-box');
+});
+// Animate sections on scroll
+const animatedSections = document.querySelectorAll('.fade-slide');
+
+function animateOnScroll() {
+  const triggerPoint = window.innerHeight / 5 * 4; // trigger 80% down the viewport
+
+  animatedSections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if(sectionTop < triggerPoint){
+      section.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll); // animate visible sections on load
