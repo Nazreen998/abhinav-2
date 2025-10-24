@@ -2,9 +2,30 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x:hidden;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+/* --- Mobile fixes for the moving category strip --- */
+@media (max-width: 768px){
+  /* turn OFF the gradient masks (clips images on some phones) */
+  .scroll-container{
+    -webkit-mask-image: none !important;
+            mask-image: none !important;
+    overflow-x: auto !important;      /* allow swipe */
+    -webkit-overflow-scrolling: touch; /* smooth inertial scroll */
+  }
+  /* stop the infinite animation on small screens = items won't disappear */
+  .scroll-content{
+    animation: none !important;
+    width: max-content !important;
+    gap: 14px !important;
+  }
+  /* make it a simple horizontal row that scrolls */
+  .item{ flex: 0 0 auto; }
+  .avatar{ width: 120px; height: 120px; border-radius: 50%; } /* ensure visible + round */
+}
+
 /* 🔹 Top Bar */
 .top-bar {
   display: flex;
@@ -327,26 +348,21 @@ li{
 
 /* 🔹 Banner */
 .banner {
-  margin-top: 20px;
-  margin-left: 15px;
-  background: url('cat4.png') center/cover no-repeat;
-  height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+  margin: 20px 0 0 0 !important;
+  background: url('./cat4.png') center / cover no-repeat !important;
+  /* vh safer for mobile */
+  min-height: 80vh;           /* small viewport height */
+  display:flex; justify-content:center; align-items:center;
   position: relative;
 }
-.banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+.banner::after{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.35);  /* little lighter overlay */
 }
-.banner-content { position: relative; z-index: 2; }
-.banner-content h1 { font-size: 4rem; margin-bottom: 10px; }
-.banner-content p { font-size: 1.5rem; margin-bottom: 20px; }
+.banner-content{ position:relative; z-index:1; padding: 0 16px; }
+.banner-content h1{ font-size: clamp(28px, 8vw, 48px); line-height:1.1; }
+.banner-content p{ font-size: clamp(14px, 3.6vw, 20px); }
 .banner-content button {
   padding: 10px 25px;
   background: rgb(3, 31, 114);
@@ -357,6 +373,14 @@ li{
 }
 .banner-content button:hover {
   background-color: green;
+}
+@supports (height: 100dvh) {
+  .banner{ min-height: 55dvh; }
+}
+
+/* very small phones */
+@media (max-width: 480px){
+  .banner{ min-height: 42dvh; }
 }
 /*Our Products*/
 /* Container for content */
@@ -731,3 +755,96 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+/* ================== CATEGORY SCROLLER – clean & responsive ================== */
+
+/* cards: no inner scrollbar; tighter gutters */
+.scroll-container{
+  overflow: hidden;
+  padding: 12px 8px;
+  background:#fff;
+  border-radius:14px;
+}
+.item{ flex:0 0 auto; padding-inline:6px; }
+.card{
+  overflow: hidden;                 /* 🧼 remove inner scrollbars */
+  gap: 8px;
+  padding: 10px;
+  border-radius: 16px;
+}
+.avatar{
+  width: clamp(96px, 14vw, 150px);
+  height: clamp(96px, 14vw, 150px);
+  border-radius: 50%;
+  object-fit: cover;
+  display:block;
+}
+.caption{ font-size: clamp(12px, 1.8vw, 14px); }
+
+/* Desktop/Laptop: keep marquee */
+@media (min-width: 1025px){
+  .scroll-container{
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+  }
+  .scroll-content{ animation: marquee-left 18s linear infinite; }
+}
+
+/* Tablet & Mobile: simple swipe row (no animation/mask) */
+@media (max-width: 1024px){
+  .scroll-container{
+    -webkit-mask-image: none !important;
+            mask-image: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;          /* Firefox */
+  }
+  .scroll-container::-webkit-scrollbar{ display:none; } /* Chrome/Safari */
+  .scroll-content{
+    animation: none !important;
+    width: max-content !important;
+    gap: 12px !important;
+  }
+}
+
+/* ================== BANNER – full-bleed + responsive ================== */
+
+/* remove margins & make it span edge-to-edge */
+.banner{
+  margin: 0 !important;
+  width: 100%;
+  min-height: 82vh;                 /* laptop: almost full screen */
+  background: url('./cat4.png') center / cover no-repeat !important;
+  display:flex; justify-content:center; align-items:center;
+  position: relative;
+  border-radius: 0;
+}
+.banner::after{
+  content:""; position:absolute; inset:0;
+  background: rgba(0,0,0,0.35);    /* readable text */
+}
+.banner-content{ position:relative; z-index:1; padding: 0 16px; }
+.banner-content h1{ font-size: clamp(32px, 6vw, 64px); line-height:1.1; }
+.banner-content p{  font-size: clamp(14px, 2.2vw, 22px); margin-top: 6px; }
+.banner-content button{ margin-top: 10px; }
+
+/* Big desktops */
+@media (min-width: 1400px){
+  .banner{ min-height: 88vh; }
+}
+
+/* Tablets */
+@media (max-width: 1024px){
+  .banner{ min-height: 60svh; }     /* safe viewport units */
+}
+
+/* Mobiles */
+@media (max-width: 600px){
+  .banner{ min-height: 48svh; }
+}
+
+/* Prevent any accidental horizontal scroll on the page */
+html, body{ overflow-x: hidden; }
+
+/* Generic image safety */
+img{ max-width:100%; height:auto; display:block; }
