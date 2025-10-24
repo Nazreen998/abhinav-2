@@ -36,7 +36,7 @@
   <!-- 🔹 Navbar -->
 <nav class="navbar">
   <div class="logo">
-  <img src="logo.png" alt="Logo" width="50" height="50"><span><h2>Abhinav Agency</h2></span>
+  <img src="logo.png" alt="Logo" width="50" height="50"><span><h1>ABHINAV AGENCY</h1></span>
   
 </div>
   <ul class="menu" id="menu">
@@ -63,30 +63,54 @@
     <i class="fa-solid fa-bars"></i>
   </div>
 </nav>
+<!-- 🔹 Category Slider (one continuous horizontal row) -->
+<div class="scroll-container">
+  <div class="scroll-content">
+    <!-- set #1 -->
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle1@1x.webp" srcset="circle1@1x.webp 1x, circle1@2x.webp 2x, circle1@3x.webp 3x" width="160" height="160" alt="Cool Drinks" loading="lazy" decoding="async">
+      <p class="caption">COOL DRINKS</p></div></div>
 
-  <!-- 🔹 Category Slider -->
-  <div class="scroll-container">
-    <div class="scroll-content">
-      <div class="item"><img src="1.png" alt=""><p>Cool Drinks</p></div>
-      <div class="item"><img src="2.png" alt=""><p>Oil & Soap</p></div>
-      <div class="item"><img src="3.png" alt=""><p>Aachi Masala</p></div>
-      <div class="item"><img src="4.png" alt=""><p>Pipes</p></div>
-      <div class="item"><img src="5.png" alt=""><p>Kothari Pipes</p></div>
-      <div class="item"><img src="6.png" alt=""><p>Fresh Drink</p></div>
-      <div class="item"><img src="7.png" alt=""><p>Biscuits</p></div>
-      <div class="item"><img src="8.png" alt=""><p>Others</p></div>
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle2@1x.webp" srcset="circle2@1x.webp 1x, circle2@2x.webp 2x, circle2@3x.webp 3x" width="160" height="160" alt="Oil & Soap" loading="lazy" decoding="async">
+      <p class="caption">OIL & SOAP</p></div></div>
 
-      <!-- 🔁 Duplicate slides for smooth continuous scroll -->
-      <div class="item"><img src="1.png" alt=""><p>Cool Drinks</p></div>
-      <div class="item"><img src="2.png" alt=""><p>Oil & Soap</p></div>
-      <div class="item"><img src="3.png" alt=""><p>Aachi Masala</p></div>
-      <div class="item"><img src="4.png" alt=""><p>Pipes</p></div>
-      <div class="item"><img src="5.png" alt=""><p>Kothari Pipes</p></div>
-      <div class="item"><img src="6.png" alt=""><p>Fresh Drink</p></div>
-      <div class="item"><img src="7.png" alt=""><p>Biscuits</p></div>
-      <div class="item"><img src="8.png" alt=""><p>Others</p></div>
-    </div>
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle3@1x.webp" srcset="circle3@1x.webp 1x, circle3@2x.webp 2x, circle3@3x.webp 3x" width="160" height="160" alt="Aachi Masala" loading="lazy" decoding="async">
+      <p class="caption">AACHI MASALA</p></div></div>
+
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle4@1x.webp" srcset="circle4@1x.webp 1x, circle4@2x.webp 2x, circle4@3x.webp 3x" width="160" height="160" alt="Ashirvad Pipes" loading="lazy" decoding="async">
+      <p class="caption">ASHIRVAD PIPES</p></div></div>
+
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle5@1x.webp" srcset="circle5@1x.webp 1x, circle5@2x.webp 2x, circle5@3x.webp 3x" width="160" height="160" alt="Kothari Pipes" loading="lazy" decoding="async">
+      <p class="caption">KOTHARI PIPES</p></div></div>
+
+    <div class="item"><div class="card">
+      <img class="avatar" src="circleCombo@1x.webp"srcset="circleCombo@1x.webp 1x, circleCombo@2x.webp 2x, circleCombo@3x.webp 3x" width="160" height="160" alt="Fresh Drinks" loading="lazy" decoding="async">
+      <p class="caption">FRESH DRINKS</p></div></div>
+
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle7@1x.webp" srcset="circle7@1x.webp 1x, circle7@2x.webp 2x, circle7@3x.webp 3x" width="160" height="160" alt="Biscuits" loading="lazy" decoding="async">
+      <p class="caption">BISCUITS</p></div></div>
+
+    <div class="item"><div class="card">
+      <img class="avatar" src="circle8@1x.webp" srcset="circle8@1x.webp 1x, circle8@2x.webp 2x, circle8@3x.webp 3x" width="160" height="160" alt="Others" loading="lazy" decoding="async">
+      <p class="caption">OTHERS</p></div></div>
+
+    <!-- 🔁 duplicate set #1 again (for seamless loop) -->
+    <div class="item" aria-hidden="true"><div class="card">
+      <img class="avatar" src="circle1@1x.webp" srcset="circle1@1x.webp 1x, circle1@2x.webp 2x, circle1@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">COOL DRINKS</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle2@1x.webp" srcset="circle2@1x.webp 1x, circle2@2x.webp 2x, circle2@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">OIL & SOAP</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle3@1x.webp" srcset="circle3@1x.webp 1x, circle3@2x.webp 2x, circle3@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">AACHI MASALA</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle4@1x.webp" srcset="circle4@1x.webp 1x, circle4@2x.webp 2x, circle4@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">ASHIRVAD PIPES</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle5@1x.webp" srcset="circle5@1x.webp 1x, circle5@2x.webp 2x, circle5@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">KOTHARI PIPES</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circleCombo@1x.webp"srcset="circleCombo@1x.webp 1x, circleCombo@2x.webp 2x, circleCombo@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">FRESH DRINK</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle7@1x.webp" srcset="circle7@1x.webp 1x, circle7@2x.webp 2x, circle7@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">BISCUITS</p></div></div>
+    <div class="item" aria-hidden="true"><div class="card"><img class="avatar" src="circle8@1x.webp" srcset="circle8@1x.webp 1x, circle8@2x.webp 2x, circle8@3x.webp 3x" width="160" height="160" alt=""> <p class="caption">OTHERS</p></div></div>
   </div>
+</div>
 
   <!-- 🔹 Banner -->
  <section class="banner fade-slide"> 
@@ -220,7 +244,7 @@
       <div class="contact-info">
         <h3><u>Get in Touch</u></h3><br>
         <p><i class="fa-solid fa-location-dot"></i>RS No. 149/7A, Parambupatti Road, Near SN College, Perungudi ,Madurai - 625022</p><br>
-        <p><i class="fa-solid fa-location-dot"></i> 4/130 Phase II CHintamani Ring Road, Via Chintamani Toll Gate, Madurai-625009</p><br>
+        <p><i class="fa-solid fa-location-dot"></i> 4/130 Phase II Chintamani Ring Road, Via Chintamani Toll Gate, Madurai-625009</p><br>
         <p><i class="fa-solid fa-phone"></i> +91 79045 42078</p><br>
         <p><i class="fa-solid fa-envelope"></i> abhinavagency@gmail.com</p><br>
         <p><i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 9:00 PM</p><br>
@@ -241,14 +265,10 @@
 
 <!-- ✅ JavaScript at the very end -->
 <script>
-  const menuToggle = document.getElementById("menuToggle");
+  const menuToggle = document.getElementById("menu-toggle"); /* <-- match id */
   const menu = document.getElementById("menu");
   const dropdowns = document.querySelectorAll(".dropdown > a");
-
-  // Toggle main mobile menu
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("active"); 
-  });
+  menuToggle.addEventListener("click", () => menu.classList.toggle("active"));
 
   // Dropdown open/close for mobile
   dropdowns.forEach(link => {

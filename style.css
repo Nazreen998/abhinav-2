@@ -38,10 +38,10 @@
   gap: 10px;                 /* Optional: space between logo and text */
 }
 
-.logo h2 {
+.logo h1 {
   color: rgb(3, 31, 114);
   margin: 0;                 /* Remove default margin */
-  font-size: 20px;           /* Adjust text size as needed */
+           /* Adjust text size as needed */
 }
 /* 🔹 Menu */
 .menu {
@@ -94,6 +94,9 @@
   font-size: 22px;
   color: rgb(3, 31, 114);
   cursor: pointer;
+}
+li{
+  font-size: 16.5px;
 }
 /*Pre Loader*/
   #preloader {
@@ -187,62 +190,147 @@
     font-size: 12px;
   }
 }
+/* ============ Category Slider (Responsive + Animated) ============ */
+:root{
+  --card-w: clamp(120px, 18vw, 200px);  /* responsive width */
+  --img-size: clamp(96px, 14vw, 160px); /* responsive circle */
+  --gap: clamp(10px, 2vw, 16px);
+  --marquee-speed: 18s;                 /* ↓ change for speed */
+}
 
-/* 🔹 Category Slider */
- .scroll-container {
-    width: 100%;
-    height: 225px;
-    overflow: hidden;
-    border: 2px solid #ccc;
-    padding: 10px 0;
-    background: #fff;
-    border-radius: 12px;
-  }
+.scroll-container{
+  width:100%;
+  overflow:hidden;
+  border:2px solid #e6e6e6;
+  padding:14px 0;
+  background:#fff;
+  border-radius:14px;
+  /* nice edge fade */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+}
 
-  .scroll-content {
-    display: flex;
-    width: max-content;
-    animation: scroll-left 15s linear infinite;
-  }
+/* moving strip */
+.scroll-content{
+  display:flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap:var(--gap);
+  width:max-content;
+  animation: marquee-left var(--marquee-speed) linear infinite;
+  will-change:transform;
+}
+.scroll-container:hover .scroll-content{ animation-play-state:paused; }
 
-  .scroll-content.reverse {
-    animation: scroll-right 15s linear infinite;
-  }
+/* reverse support (optional) */
+.scroll-content.reverse{ animation-name: marquee-left; }
 
-  .item {
-    flex-shrink: 0;
-    width: 200px;
-    height: 200px;
-    margin: 0 15px;
-    border-radius: 50%; /* circular images */
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  }
+/* each item keeps its own box */
+.item{
+  flex:0 0 auto;
+  width:var(--card-w);
+  display:flex;
+}
 
-  .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-      border-radius: 50%;
-  }
-  .item p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #333;
-  }
-  @keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+/* pretty card box */
+.card{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:16px;
+  background:linear-gradient(#ffffff, #fbfbfb);
+  border:1px solid #eee;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  position:relative;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
 
-  @keyframes scroll-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+/* subtle animated border glow */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:18px;
+  background:conic-gradient(from 0deg, #8ec5ff, #b3ffdd, #ffd7a5, #8ec5ff);
+  filter: blur(10px);
+  opacity:.0;
+  transition: opacity .3s ease;
+  z-index:-1;
+}
+
+/* circle image */
+.avatar{
+  width: var(--img-size);   /* e.g., 160px / your clamp() */
+  height: var(--img-size);
+  object-fit: cover;
+  /* radius not required now; image already circular & transparent */
+  display:block;
+}
+/* caption */
+.caption{
+  margin:0;
+  font-size:clamp(12px, 2.2vw, 14px);
+  font-weight: bold;
+  color: #011349;
+  line-height:1.2;
+  text-align:center;
+  white-space:normal;
+}
+
+/* hover / focus animations */
+.card:hover,
+.card:focus-within{
+  transform: translateY(-4px);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+  border-color:#d7ecff;
+}
+.card:hover .avatar{ transform: scale(1.04) rotate(-1deg); }
+.card:hover::after{ opacity:.6; }
+
+/* small “breathing” animation for avatars (subtle, staggered) */
+@keyframes bob {
+  0%,100%{ transform: translateY(0); }
+  50%    { transform: translateY(-3px); }
+}
+.item:nth-child(4n+1) .avatar{ animation: bob 3.6s ease-in-out infinite; }
+.item:nth-child(4n+2) .avatar{ animation: bob 4.0s ease-in-out infinite; }
+.item:nth-child(4n+3) .avatar{ animation: bob 3.2s ease-in-out infinite; }
+.item:nth-child(4n+4) .avatar{ animation: bob 3.8s ease-in-out infinite; }
+
+/* marquee (duplicate items once → -50%) */
+@keyframes marquee-left{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+@keyframes marquee-right{
+  0%{ transform: translateX(-50%); }
+  100%{ transform: translateX(0); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  .scroll-content{ animation:none; }
+  .avatar{ animation:none; }
+  .card, .avatar{ transition:none; }
+}
+
+/* tiny screens */
+@media (max-width:420px){
+  :root{
+    --card-w: clamp(110px, 46vw, 150px);
+    --img-size: clamp(88px, 36vw, 132px);
   }
+}
+
 /* 🔹 Banner */
 .banner {
+  margin-top: 20px;
+  margin-left: 15px;
   background: url('cat4.png') center/cover no-repeat;
-  height: 70vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,7 +352,7 @@
   background: rgb(3, 31, 114);
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer;
 }
 .banner-content button:hover {
